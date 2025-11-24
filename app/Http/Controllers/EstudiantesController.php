@@ -10,6 +10,7 @@ class EstudiantesController extends Controller
     public function index(Request $request){
         try {
             $curso_id = $request->input('curso_id');
+            //dd("aca");
             $query = Estudiante::query();
             if ($curso_id) {
                 $query->where('curso_id', $curso_id);

@@ -10,15 +10,21 @@
         @endsession
         <div class="col-12">
             <h3 class="text-center mb-2 mt-2">Listado calificaciones</h3>
-            <h6 class="text-center mb-3">[{{$curso_id}}° {{  $curso->nombre}}]</h6>
+            <h6 class="text-center mb-3">[{{ $curso_id }}° {{ $curso->nombre }}]</h6>
+            <div class="row justify-content-center">
+                <div class="col-10">
+                    <h4 class="text-left">[{{ $asignatura->nombre }}]</h6>
+                </div>
+            </div>
             <div class="row justify-content-center">
                 <div class="col-10">
                     <form action="{{ route('calificaciones.modificar') }}" method="POST">
                         @csrf
                         @method('PUT')
-                        <div class="text-center  mb-4" onclick="return confirm('¿¿Estás seguro ??')">
-                            <button type="submit" class="btn btn-success">Guardar todas las calificaciones</button>
+                        <div class=" text-center mb-4" style="margin-top:-2.5%;" onclick="return confirm('¿¿Estás seguro ??')">
+                                <button type="submit" class="btn btn-success">Guardar todas las calificaciones</button>
                         </div>
+
                         <table class="table table-bordered">
                             <thead>
                                 <tr class="table table-dark">
