@@ -8,7 +8,7 @@
             <h6 class="text-center mb-3">[{{$curso_id}}° {{  $ponderaciones[0]->curso->nombre}}]</h6>
             <div class="row justify-content-center">
                 <div class="col-10">
-                    <form action="" method="POST">
+                    <form action="{{route('ponderaciones.modificar',['curso_id'=>$curso_id])}}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class="text-center  mb-4" onclick="return confirm('¿¿Estás seguro ??')">
@@ -34,32 +34,32 @@
                                         </td>
                                         <td>
                                             <input type="number" name="ponderaciones[{{ $pon->id }}][n1_per]"
-                                                value="{{ $pon->n1_per }}" min="0" max="7" step="0.01"
+                                                value="{{ $pon->n1_per }}" min="0" max="100" step="5"
                                                 class="form-control">
                                         </td>
                                         <td>
                                             <input type="number" name="ponderaciones[{{ $pon->id }}][n2_per]"
-                                                value="{{ $pon->n2_per }}" min="0" max="7" step="0.01"
+                                                value="{{ $pon->n2_per }}" min="0" max="100" step="5"
                                                 class="form-control">
                                         </td>
                                         <td>
                                             <input type="number" name="ponderaciones[{{ $pon->id }}][n3_per]"
-                                                value="{{ $pon->n3_per }}" min="0" max="7" step="0.01"
+                                                value="{{ $pon->n3_per }}" min="0" max="100" step="5"
                                                 class="form-control">
                                         </td>
                                         <td>
                                             <input type="number" name="ponderaciones[{{ $pon->id }}][n4_per]"
-                                                value="{{ $pon->n4_per }}" min="0" max="7" step="0.01"
+                                                value="{{ $pon->n4_per }}" min="0" max="100" step="5"
                                                 class="form-control">
                                         </td>
                                         <td>
                                             <input type="number" name="ponderaciones[{{ $pon->id }}][n5_per]"
-                                                value="{{ $pon->n5_per }}" min="0" max="7" step="0.01"
+                                                value="{{ $pon->n5_per }}" min="0" max="100" step="5"
                                                 class="form-control">
                                         </td>
                                         <td>
                                             <input type="number" name="ponderaciones[{{ $pon->id }}][n6_per]"
-                                                value="{{ $pon->n6_per }}" min="0" max="7" step="0.01"
+                                                value="{{ $pon->n6_per }}" min="0" max="100" step="5"
                                                 class="form-control">
                                         </td>
                                     </tr>

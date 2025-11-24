@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
+
 Route::get('/estudiantes', [EstudiantesController::class, 'index'])->name('estudiantes.index');
 Route::get('/estudiantes/crear', [EstudiantesController::class, 'crear'])->name('estudiantes.crear');
 Route::post('/estudiantes/guardar', [EstudiantesController::class, 'guardar'])->name('estudiantes.guardar');
@@ -19,3 +20,4 @@ Route::get('/calificaciones', [CalificacionesController::class, 'index'])->name(
 Route::put('/calificaciones/modificar', [CalificacionesController::class, 'modificar'])->name('calificaciones.modificar');
 
 Route::get('/ponderaciones', [PonderacionesController::class, 'index'])->name('ponderaciones.index');
+Route::put('/ponderaciones/modificar', [PonderacionesController::class, 'modificar'])->name('ponderaciones.modificar');

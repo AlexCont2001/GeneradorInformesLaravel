@@ -7,6 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Ponderacion extends Model
 {
     protected $table = 'ponderaciones';
+    protected $fillable = [
+        'n1_per',
+        'n2_per',
+        'n3_per',
+        'n4_per',
+        'n5_per',
+        'n6_per',
+    ];
     public $timestamps = false;
     
     public function asignatura()

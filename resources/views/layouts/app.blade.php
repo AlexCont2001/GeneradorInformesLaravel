@@ -13,6 +13,21 @@
         <main>
             <div class="container-fluid">
                 <div class="row">
+                    <div class="col-1 g-0">
+                        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                            <div class="container-fluid">
+                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link" href="{{route('welcome')}}" role="button">
+                                                Home
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
                     <div class="col-2 g-0">
                         <nav class="navbar navbar-expand-lg bg-body-tertiary">
                             <div class="container-fluid">
@@ -68,7 +83,7 @@
                             </div>
                         </nav>
                     </div>
-                    <div class="col-8 g-0">
+                    <div class="col-7 g-0">
                         <nav class="navbar navbar-expand-lg bg-body-tertiary">
                             <div class="container-fluid">
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">

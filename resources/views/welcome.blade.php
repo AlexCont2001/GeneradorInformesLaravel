@@ -12,8 +12,11 @@
     style="background-image: url('{{ asset('images/background.jpg') }}'); background-size: cover; background-position: center; height: 400px;">
     <div>
         <div class="container-fluid">
+            <div class="row mt-4 mb-4">
+                <h3 class="text-center">Seleccione Curso</h3>
+            </div>
             <div class="row mt-2 mb-4 p-2">
-                <div class="col-4">
+                <div class="col-2">
                 </div>
                 <div class="col-1">
                     <a href="{{route('estudiantes.index',['curso_id'=>1])}}" class="btn btn-primary">Primero</a>
@@ -39,6 +42,7 @@
                 <div class="col-1">
                     <a href="{{route('estudiantes.index',['curso_id'=>8])}}" class="btn btn-dark">Octavo</a>
                 </div>
+                <div class="col-2"></div>
             </div>
             <div class="row justify-content-center align-items-center" style="height: 650px;">
                 <div class="col-12 text-center">
