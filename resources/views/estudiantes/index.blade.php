@@ -9,14 +9,15 @@
         </div>
     @endsession
         <div class="col-12">
-            <h3 class="text-center mb-4">Listado de Estudiantes</h3>
+            <h3 class="text-center mb-5">Listado de Estudiantes</h3>
             <div class="row mb-3">
-                <div class="col-12">
+                <div class="col-1"></div>
+                <div class="col-3">
                     <a href="{{ route('estudiantes.crear',['curso_id'=>$curso_id]) }}" class="btn btn-success">Nuevo Estudiante</a>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12">
+            <div class="row justify-content-center">
+                <div class="col-10">
                     <table class="table table-bordered  table-striped">
                         <thead class="table-dark">
                             <tr class="text-white">
@@ -26,7 +27,6 @@
                                 <th>Apellido Materno</th>
                                 <th>Rut</th>
                                 <th>Promedio</th>
-                                <th>Curso ID</th>
                                 <th class="text-center">Acciones</th>
                             </tr>
                         </thead>
@@ -39,7 +39,6 @@
                                     <td>{{ $estudiante->apellido_materno }}</td>
                                     <td>{{ $estudiante->rut }}</td>
                                     <td>{{ $estudiante->promedio }}</td>
-                                    <td>{{ $estudiante->curso_id }}</td>
                                     <td class="text-center">
                                         <a href="{{ route('estudiantes.editar',['estudiante'=>$estudiante->id,'curso_id'=>$curso_id])}}" class="btn btn-warning">Edit</a>
                                         <form action="{{route('estudiantes.eliminar',['estudiante'=>$estudiante->id])}}" method="POST" class="d-inline">

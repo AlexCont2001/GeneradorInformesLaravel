@@ -14,7 +14,6 @@
         <div class="container-fluid">
             <div class="row mt-2 mb-4 p-2">
                 <div class="col-4">
-                    <a href="" class="btn border border-dark ">Home</a>
                 </div>
                 <div class="col-1">
                     <a href="{{route('estudiantes.index',['curso_id'=>1])}}" class="btn btn-primary">Primero</a>

@@ -15,4 +15,10 @@ class Estudiante extends Model
         'curso_id'
     ];
     public $timestamps = false;
+    
+    public function calificaciones()
+    {
+        return $this->hasMany(Calificacion::class, 'estudiante_id'); 
+    }
+
 }
