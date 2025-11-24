@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Calificacion;
+use App\Models\Curso;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -12,6 +13,7 @@ class CalificacionesController extends Controller
     {
         try {
             $curso_id = $request->input('curso_id');
+            $curso = Curso::find($curso_id);
             $asignatura_id = $request->input('asignatura_id');
             $calificaciones = Calificacion::with(['ponderacion', 'estudiante'])
                 ->whereHas('estudiante', function ($q) use ($curso_id) {
@@ -22,7 +24,7 @@ class CalificacionesController extends Controller
                 })
                 ->orderBy('id', 'ASC')
                 ->get();
-            return view('calificaciones.index', compact('calificaciones', 'curso_id'));
+            return view('calificaciones.index', compact('calificaciones', 'curso_id', 'curso'));
         } catch (\Exception $e) {
             dd($e->getMessage());
         }

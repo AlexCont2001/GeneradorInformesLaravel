@@ -2,11 +2,18 @@
 
 @section('content')
     <div class="row">
+        @session('success')
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Success!</strong> {{ $value }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endsession
         <div class="col-12">
-            <h3 class="text-center mb-4 mt-5">Listado calificaciones</h3>
+            <h3 class="text-center mb-2 mt-2">Listado calificaciones</h3>
+            <h6 class="text-center mb-3">[{{$curso_id}}° {{  $curso->nombre}}]</h6>
             <div class="row justify-content-center">
                 <div class="col-10">
-                    <form action="{{route('calificaciones.modificar')}}" method="POST">
+                    <form action="{{ route('calificaciones.modificar') }}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class="text-center  mb-4" onclick="return confirm('¿¿Estás seguro ??')">
@@ -14,7 +21,7 @@
                         </div>
                         <table class="table table-bordered">
                             <thead>
-                                <tr>
+                                <tr class="table table-dark">
                                     <th>Estudiante</th>
                                     <th>N1</th>
                                     <th>N2</th>
@@ -66,7 +73,7 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        
+
                     </form>
 
                 </div>

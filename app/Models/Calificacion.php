@@ -9,7 +9,7 @@ class Calificacion extends Model
     protected $table = 'calificaciones';
 
     protected $fillable = [
-        'n1', 'n2', 'n3', 'n4', 'n5', 'n6', 'promedio', 'estudiante_id', 'curso_id'
+        'n1', 'n2', 'n3', 'n4', 'n5', 'n6', 'estudiante_id', 'curso_id'
     ];
     
     public $timestamps = false;

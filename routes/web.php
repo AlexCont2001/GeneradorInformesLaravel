@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CalificacionesController;
 use App\Http\Controllers\EstudiantesController;
+use App\Http\Controllers\PonderacionesController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -16,3 +17,5 @@ Route::delete('/estudiantes/{estudiante}', [EstudiantesController::class, 'elimi
 
 Route::get('/calificaciones', [CalificacionesController::class, 'index'])->name('calificaciones.index');
 Route::put('/calificaciones/modificar', [CalificacionesController::class, 'modificar'])->name('calificaciones.modificar');
+
+Route::get('/ponderaciones', [PonderacionesController::class, 'index'])->name('ponderaciones.index');

@@ -66,24 +66,24 @@
                                             <ul class="dropdown-menu p-3" style="min-width: 600px;">
                                                 <div class="row">
                                                     <div class="col-3">
-                                                        <a class="dropdown-item" href="#">Matemáticas</a>
-                                                        <a class="dropdown-item" href="#">Lenguaje</a>
-                                                        <a class="dropdown-item" href="#">Historia</a>
+                                                        <a class="dropdown-item" href="{{route('ponderaciones.index',['curso_id'=>$curso_id])}}">Matemáticas</a>
+                                                        <a class="dropdown-item" href="{{route('ponderaciones.index',['curso_id'=>$curso_id])}}">Lenguaje</a>
+                                                        <a class="dropdown-item" href="{{route('ponderaciones.index',['curso_id'=>$curso_id])}}">Historia</a>
                                                     </div>
                                                     <div class="col-3">
-                                                        <a class="dropdown-item" href="#">Ciencias Naturales</a>
-                                                        <a class="dropdown-item" href="#">Inglés</a>
-                                                        <a class="dropdown-item" href="#">Tecnología</a>
+                                                        <a class="dropdown-item" href="{{route('ponderaciones.index',['curso_id'=>$curso_id])}}">Ciencias Naturales</a>
+                                                        <a class="dropdown-item" href="{{route('ponderaciones.index',['curso_id'=>$curso_id])}}">Inglés</a>
+                                                        <a class="dropdown-item" href="{{route('ponderaciones.index',['curso_id'=>$curso_id])}}">Tecnología</a>
                                                     </div>
                                                     <div class="col-3">
-                                                        <a class="dropdown-item" href="#">Educación Física</a>
-                                                        <a class="dropdown-item" href="#">Taller</a>
-                                                        <a class="dropdown-item" href="#">Orientación</a>
+                                                        <a class="dropdown-item" href="{{route('ponderaciones.index',['curso_id'=>$curso_id])}}">Educación Física</a>
+                                                        <a class="dropdown-item" href="{{route('ponderaciones.index',['curso_id'=>$curso_id])}}">Taller</a>
+                                                        <a class="dropdown-item" href="{{route('ponderaciones.index',['curso_id'=>$curso_id])}}">Orientación</a>
                                                     </div>
                                                     <div class="col-3">
-                                                        <a class="dropdown-item" href="#">Religión</a>
-                                                        <a class="dropdown-item" href="#">Música</a>
-                                                        <a class="dropdown-item" href="#">Artes Visuales</a>
+                                                        <a class="dropdown-item" href="{{route('ponderaciones.index',['curso_id'=>$curso_id,])}}">Religión</a>
+                                                        <a class="dropdown-item" href="{{route('ponderaciones.index',['curso_id'=>$curso_id,])}}">Música</a>
+                                                        <a class="dropdown-item" href="{{route('ponderaciones.index',['curso_id'=>$curso_id,])}}">Artes Visuales</a>
                                                     </div>
                                                 </div>
                                             </ul>
