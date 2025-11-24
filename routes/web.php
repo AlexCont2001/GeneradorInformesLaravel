@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/home', function () {
-    return view('home');
-});
 Route::get('/estudiantes', [EstudiantesController::class, 'index'])->name('estudiantes.index');
 Route::get('/estudiantes/crear', [EstudiantesController::class, 'crear'])->name('estudiantes.crear');
 Route::post('/estudiantes/guardar', [EstudiantesController::class, 'guardar'])->name('estudiantes.guardar');
