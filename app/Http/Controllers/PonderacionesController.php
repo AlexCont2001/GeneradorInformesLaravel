@@ -20,14 +20,23 @@ class PonderacionesController extends Controller
     public function modificar(Request $request)
     {   
         $datos = $request->input('ponderaciones');
-        DB::transaction(function () use ($datos) {
+        $ponderacionesModificadas = [];
+        DB::transaction(function () use ($datos, &$ponderacionesModificadas) {
             foreach ($datos as $id => $valores) {
                 $pon = Ponderacion::find($id);
                 if ($pon) {
-                    $pon->update($valores); 
+                    $pon->fill($valores); 
+                    if($pon->isDirty()){
+                        $pon->save(); 
+                        $ponderacionesModificadas[] = $pon->id;
+                    }
                 }
             }
         });
+        $ponderacion_ids = implode(',', $ponderacionesModificadas);
+        if (!empty($ponderacion_ids)) {
+            DB::statement('CALL sp_calcularPromediosPonderacion(?)', [$ponderacion_ids]);
+        }
 
         return redirect()->back()->with('success', 'Ponderaciones actualizadas correctamente.');
     }

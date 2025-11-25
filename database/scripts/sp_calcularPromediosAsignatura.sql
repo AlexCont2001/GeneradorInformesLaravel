@@ -27,13 +27,13 @@ BEGIN
 
         -- Calcular promedio ponderado del estudiante actual
         SELECT ROUND(SUM(
-    c.n1*(p.n1_per/100) + 
-    c.n2*(p.n2_per/100) + 
-    c.n3*(p.n3_per/100) + 
-    c.n4*(p.n4_per/100) + 
-    c.n5*(p.n5_per/100) + 
-    c.n6*(p.n6_per/100)
-), 1)
+            c.n1*(p.n1_per/100) + 
+            c.n2*(p.n2_per/100) + 
+            c.n3*(p.n3_per/100) + 
+            c.n4*(p.n4_per/100) + 
+            c.n5*(p.n5_per/100) + 
+            c.n6*(p.n6_per/100)
+        ), 1)
         INTO promedioAsignatura
         FROM calificaciones c
         INNER JOIN ponderaciones p ON c.ponderacion_id = p.id
