@@ -3,17 +3,18 @@
 @section('content')
     <div class="row">
         @session('success')
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Success!</strong> {{$values}}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endsession
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Success!</strong> {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endsession
         <div class="col-12">
             <h3 class="text-center mb-5">Listado de Estudiantes</h3>
             <div class="row mb-3">
                 <div class="col-1"></div>
                 <div class="col-3">
-                    <a href="{{ route('estudiantes.crear',['curso_id'=>$curso_id]) }}" class="btn btn-success">Nuevo Estudiante</a>
+                    <a href="{{ route('estudiantes.crear', ['curso_id' => $curso_id]) }}" class="btn btn-success">Nuevo
+                        Estudiante</a>
                 </div>
             </div>
             <div class="row justify-content-center">
@@ -40,12 +41,16 @@
                                     <td>{{ $estudiante->rut }}</td>
                                     <td>{{ $estudiante->promedio }}</td>
                                     <td class="text-center">
-                                        <a href="{{ route('estudiantes.editar',['estudiante'=>$estudiante->id,'curso_id'=>$curso_id])}}" class="btn btn-warning">Edit</a>
-                                        <form action="{{route('estudiantes.eliminar',['estudiante'=>$estudiante->id])}}" method="POST" class="d-inline">
+                                        <a href="{{ route('estudiantes.editar', ['estudiante' => $estudiante->id, 'curso_id' => $curso_id]) }}"
+                                            class="btn btn-warning">Edit</a>
+                                        <form action="{{ route('estudiantes.eliminar', ['estudiante' => $estudiante->id]) }}"
+                                            method="POST" class="d-inline">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger" onclick="return confirm('¿¿Estás seguro que quieres eliminar este estudiante??')">Eliminar</button>
+                                            <button type="submit" class="btn btn-danger"
+                                                onclick="return confirm('¿¿Estás seguro que quieres eliminar este estudiante??')">Eliminar</button>
                                         </form>
+                                        <a href="" class="btn btn-primary">Exportar Word</a>
                                     </td>
                                 </tr>
                             @empty

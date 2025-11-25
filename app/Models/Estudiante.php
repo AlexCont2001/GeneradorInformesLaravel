@@ -12,7 +12,7 @@ class Estudiante extends Model
         'apellido_materno',
         'rut',
         'promedio',
-        'curso_id',
+        'curso_id'
     ];
     public $timestamps = false;
     

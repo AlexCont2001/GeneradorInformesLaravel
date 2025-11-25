@@ -18,7 +18,7 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-10">
-                    <form action="{{ route('calificaciones.modificar') }}" method="POST">
+                    <form action="{{ route('calificaciones.modificar',['ponderacion_id'=>$calificaciones[0]->ponderacion_id]) }}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class=" text-center mb-4" style="margin-top:-2.5%;" onclick="return confirm('¿¿Estás seguro ??')">
@@ -75,6 +75,9 @@
                                                 value="{{ $cal->n6 }}" min="0" max="7" step="0.01"
                                                 class="form-control">
                                         </td>
+                                            <input type="hidden" name="calificaciones[{{ $cal->id }}][estudiante_id]"
+                                                value="{{ $cal->estudiante->id }}" 
+                                                class="form-control">
                                     </tr>
                                 @endforeach
                             </tbody>

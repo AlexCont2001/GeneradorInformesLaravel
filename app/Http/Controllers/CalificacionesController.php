@@ -35,16 +35,25 @@ class CalificacionesController extends Controller
     public function modificar(Request $request)
     {
         $datos = $request->input('calificaciones');
-
-        DB::transaction(function () use ($datos) {
+        $estudiantesModificados = [];
+        DB::transaction(function () use ($datos, &$estudiantesModificados) {
             foreach ($datos as $id => $valores) {
                 $cal = Calificacion::find($id);
                 if ($cal) {
-                    $cal->update($valores); 
+                    $cal->fill($valores); 
+                    if ($cal->isDirty()) {
+                        $cal->save(); 
+                        $estudiantesModificados[] = $cal->estudiante_id;
+                    }
                 }
             }
         });
-
+        $ponderacion_id = (int)$request->input('ponderacion_id');
+        $ids = implode(',', $estudiantesModificados);
+        if (!empty($ids)) {
+            $ponderacion_id = $request->input('ponderacion_id'); 
+            DB::statement('CALL sp_calcularPromediosAsignatura(?, ?)', [$ponderacion_id, $ids]);
+        }
         return redirect()->back()->with('success', 'Calificaciones actualizadas correctamente.');
     }
 }
