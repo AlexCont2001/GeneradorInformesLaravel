@@ -18,7 +18,7 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-10">
-                    <form action="{{ route('calificaciones.modificar',['ponderacion_id'=>$calificaciones[0]->ponderacion_id]) }}" method="POST">
+                    <form action="{{ route('calificaciones.modificar',['curso_id'=>$curso_id,'ponderacion_id'=>$calificaciones[0]->ponderacion_id]) }}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class=" text-center mb-4" style="margin-top:-2.5%;" onclick="return confirm('¿¿Estás seguro ??')">

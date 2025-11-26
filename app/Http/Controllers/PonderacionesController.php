@@ -20,6 +20,7 @@ class PonderacionesController extends Controller
     public function modificar(Request $request)
     {   
         $datos = $request->input('ponderaciones');
+        $curso_id = (int)$request->input('curso_id');
         $ponderacionesModificadas = [];
         DB::transaction(function () use ($datos, &$ponderacionesModificadas) {
             foreach ($datos as $id => $valores) {
@@ -36,6 +37,7 @@ class PonderacionesController extends Controller
         $ponderacion_ids = implode(',', $ponderacionesModificadas);
         if (!empty($ponderacion_ids)) {
             DB::statement('CALL sp_calcularPromediosPonderacion(?)', [$ponderacion_ids]);
+            DB::statement('CALL sp_calcularPromedioGeneralEstudiante(?)', [$curso_id]);
         }
 
         return redirect()->back()->with('success', 'Ponderaciones actualizadas correctamente.');

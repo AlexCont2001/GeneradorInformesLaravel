@@ -35,6 +35,7 @@ class CalificacionesController extends Controller
     public function modificar(Request $request)
     {
         $datos = $request->input('calificaciones');
+        $curso_id = (int)$request->input('curso_id');
         $estudiantesModificados = [];
         DB::transaction(function () use ($datos, &$estudiantesModificados) {
             foreach ($datos as $id => $valores) {
@@ -53,6 +54,7 @@ class CalificacionesController extends Controller
         if (!empty($ids)) {
             $ponderacion_id = $request->input('ponderacion_id'); 
             DB::statement('CALL sp_calcularPromediosAsignatura(?, ?)', [$ponderacion_id, $ids]);
+            DB::statement('CALL sp_calcularPromedioGeneralEstudiante(?)', [$curso_id]);
         }
         return redirect()->back()->with('success', 'Calificaciones actualizadas correctamente.');
     }
