@@ -38,6 +38,7 @@ class PonderacionesController extends Controller
         if (!empty($ponderacion_ids)) {
             DB::statement('CALL sp_calcularPromediosPonderacion(?)', [$ponderacion_ids]);
             DB::statement('CALL sp_calcularPromedioGeneralEstudiante(?)', [$curso_id]);
+            DB::statement('CALL sp_calcularPromedioCurso(?)', [$curso_id]);
         }
 
         return redirect()->back()->with('success', 'Ponderaciones actualizadas correctamente.');

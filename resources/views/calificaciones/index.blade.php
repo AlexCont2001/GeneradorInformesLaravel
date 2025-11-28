@@ -21,11 +21,11 @@
                     <form action="{{ route('calificaciones.modificar',['curso_id'=>$curso_id,'ponderacion_id'=>$calificaciones[0]->ponderacion_id]) }}" method="POST">
                         @csrf
                         @method('PUT')
-                        <div class=" text-center mb-4" style="margin-top:-2.5%;" onclick="return confirm('¿¿Estás seguro ??')">
+                        <div class=" text-center mb-4" style="margin-top:-2.5%;">
                                 <button type="submit" class="btn btn-success">Guardar todas las calificaciones</button>
                         </div>
 
-                        <table class="table table-bordered">
+                        <table class="table table-bordered text-center">
                             <thead>
                                 <tr class="table table-dark">
                                     <th>Estudiante</th>
@@ -35,12 +35,13 @@
                                     <th>N4</th>
                                     <th>N5</th>
                                     <th>N6</th>
+                                    <th>Promedio</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($calificaciones as $cal)
                                     <tr>
-                                        <td>
+                                        <td class="text-start">
                                             {{ $cal->estudiante->nombres ?? '' }}
                                             {{ $cal->estudiante->apellido_paterno ?? '' }}
                                             {{ $cal->estudiante->apellido_materno ?? '' }}
@@ -74,6 +75,9 @@
                                             <input type="number" name="calificaciones[{{ $cal->id }}][n6]"
                                                 value="{{ $cal->n6 }}" min="0" max="7" step="0.01"
                                                 class="form-control">
+                                        </td>
+                                        <td>
+                                            <input type="text" value="{{$cal->promedio}}" class="form-control text-center" disabled>
                                         </td>
                                             <input type="hidden" name="calificaciones[{{ $cal->id }}][estudiante_id]"
                                                 value="{{ $cal->estudiante->id }}" 

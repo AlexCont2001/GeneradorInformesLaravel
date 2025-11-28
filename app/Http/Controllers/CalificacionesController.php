@@ -55,6 +55,7 @@ class CalificacionesController extends Controller
             $ponderacion_id = $request->input('ponderacion_id'); 
             DB::statement('CALL sp_calcularPromediosAsignatura(?, ?)', [$ponderacion_id, $ids]);
             DB::statement('CALL sp_calcularPromedioGeneralEstudiante(?)', [$curso_id]);
+            DB::statement('CALL sp_calcularPromedioCurso(?)', [$curso_id]);
         }
         return redirect()->back()->with('success', 'Calificaciones actualizadas correctamente.');
     }
