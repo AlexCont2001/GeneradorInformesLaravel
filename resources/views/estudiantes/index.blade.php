@@ -50,7 +50,7 @@
                                             <button type="submit" class="btn btn-danger"
                                                 onclick="return confirm('¿¿Estás seguro que quieres eliminar este estudiante??')">Eliminar</button>
                                         </form>
-                                        <a href="" class="btn btn-primary">Exportar Word</a>
+                                        <a href="{{route('informes.generarInforme',['estudiante'=>$estudiante->id])}}" class="btn btn-primary">Exportar Word</a>
                                     </td>
                                 </tr>
                             @empty

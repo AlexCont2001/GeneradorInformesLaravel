@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Estudiante;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EstudiantesController extends Controller
 {
@@ -65,6 +66,7 @@ class EstudiantesController extends Controller
         try {
             $curso_id = $estudiante->curso_id;
             $estudiante->delete();
+            DB::statement('CALL sp_calcularPromedioCurso(?)', [$curso_id]);
             return redirect()->route('estudiantes.index',['curso_id'=>$curso_id])->with('success', 'Estudiante eliminado correctamente!');
         } catch (\Exception $e) {
             dd($e->getMessage());

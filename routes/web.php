@@ -3,6 +3,7 @@
 use App\Http\Controllers\CalificacionesController;
 use App\Http\Controllers\EstudiantesController;
 use App\Http\Controllers\PonderacionesController;
+use App\Http\Controllers\WordController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -21,3 +22,5 @@ Route::put('/calificaciones/modificar', [CalificacionesController::class, 'modif
 
 Route::get('/ponderaciones', [PonderacionesController::class, 'index'])->name('ponderaciones.index');
 Route::put('/ponderaciones/modificar', [PonderacionesController::class, 'modificar'])->name('ponderaciones.modificar');
+
+Route::get('/informes/{estudiante}', [WordController::class, 'generarInforme'])->name('informes.generarInforme');
