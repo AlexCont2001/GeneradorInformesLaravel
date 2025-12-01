@@ -48,7 +48,7 @@
                 <input type="hidden" class="form-control" id="promedio" name="promedio" value=0>
             </div>
             <div class="form-group">
-                <input type="hidden" class="form-control" id="curso_id" name="curso_id" value=1>
+                <input type="hidden" class="form-control" id="curso_id" name="curso_id" value={{$curso_id}}>
             </div>
             <div class="form-group text-center">
                 <button class="btn btn-success" type="submit">Guardar</button>
