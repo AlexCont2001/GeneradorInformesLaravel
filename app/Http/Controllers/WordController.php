@@ -12,7 +12,12 @@ class WordController extends Controller
     public function generarInforme(Estudiante $estudiante)
     {
         try {
-            $templatePath = storage_path('app/public/templates/TemplatePrimerCiclo.docx');
+            if($estudiante->curso_id <=6){
+                $templatePath = storage_path('app/public/templates/Template-01.docx');
+            }else{
+                $templatePath = storage_path('app/public/templates/Template-02.docx');
+            }
+            
             $template = new TemplateProcessor($templatePath);
             $data = Estudiante::with(['calificaciones', 'calificaciones.ponderacion.asignatura', 'curso'])->find($estudiante->id);
 
